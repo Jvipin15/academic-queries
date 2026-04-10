@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Queries | Online Classes for International Students</title>
+  <meta name="description" content="Academic Queries offers professional online classes for international students in AI, Data Science, Development, Cloud, DevOps, Cybersecurity, and more." />
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #06b6d4;
+      --accent-dark: #0891b2;
+      --light: #f8fafc;
+      --text: #334155;
+      --muted: #64748b;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --success: #25d366;
+      --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+      --container: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--container));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--primary);
+      color: var(--white);
+      font-size: 14px;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    .topbar-left,
+    .topbar-right {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand h1 {
+      font-size: 26px;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .brand span {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .btn-dark {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: #020617;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(12,74,110,0.9));
+      color: var(--white);
+      padding: 84px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.35;
+    }
+
+    .hero::before {
+      width: 300px;
+      height: 300px;
+      background: #22d3ee;
+      top: -80px;
+      right: -60px;
+    }
+
+    .hero::after {
+      width: 260px;
+      height: 260px;
+      background: #38bdf8;
+      bottom: -80px;
+      left: -60px;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      font-size: 52px;
+      line-height: 1.12;
+      margin-bottom: 18px;
+      max-width: 740px;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.88);
+      font-size: 18px;
+      max-width: 700px;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .stat-box,
+    .feature-panel,
+    .card,
+    .step,
+    .testimonial,
+    .contact-card,
+    .form-card {
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 18px;
+    }
+
+    .stat-box strong {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+
+    .hero-side {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 28px;
+      border-radius: 26px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-side h3 {
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature-panel {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .feature-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-top: 7px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    .section-heading .tag {
+      color: var(--accent-dark);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .section-heading h3 {
+      font-size: 40px;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 28px;
+    }
+
+    .card h4 {
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .course-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .course-list li {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .why-us {
+      background: #eef6fb;
+    }
+
+    .benefit-grid,
+    .step-grid,
+    .testimonial-grid,
+    .footer-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .benefit-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .step-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .testimonial-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .benefit-box,
+    .step,
+    .testimonial {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .benefit-box h4,
+    .step h4,
+    .testimonial h4 {
+      color: var(--primary);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .benefit-box p,
+    .step p,
+    .testimonial p {
+      color: var(--muted);
+    }
+
+    .number {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .cta-strip {
+      background: linear-gradient(135deg, var(--primary), #0c4a6e);
+      color: var(--white);
+      padding: 34px 0;
+    }
+
+    .cta-strip .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-strip h3 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .contact-section .wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+    }
+
+    .contact-card,
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 30px;
+    }
+
+    .contact-card h4,
+    .form-card h4 {
+      color: var(--primary);
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .contact-list li {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+    }
+
+    .contact-list strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-size: 15px;
+      color: var(--text);
+      outline: none;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      background: var(--white);
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer {
+      background: var(--primary);
+      color: var(--white);
+      padding: 58px 0 24px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1.3fr 0.8fr 0.9fr;
+      margin-bottom: 24px;
+    }
+
+    .footer h4 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer li,
+    .footer a {
+      color: rgba(255,255,255,0.82);
+      font-size: 15px;
+    }
+
+    .footer ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .copyright {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1001;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: var(--success);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 20px 40px rgba(37, 211, 102, 0.35);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .success-message {
+      margin-top: 12px;
+      color: #166534;
+      background: #dcfce7;
+      border: 1px solid #bbf7d0;
+      padding: 12px 14px;
+      border-radius: 12px;
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .contact-section .wrap,
+      .grid-2,
+      .benefit-grid,
+      .step-grid,
+      .testimonial-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 42px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .mobile-toggle {
+        display: inline-flex;
+      }
+
+      .navbar .container {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 14px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero {
+        padding: 68px 0;
+      }
+
+      .hero h2 {
+        font-size: 34px;
+      }
+
+      .section-heading h3 {
+        font-size: 32px;
+      }
+
+      .cta-strip h3,
+      .contact-card h4,
+      .form-card h4 {
+        font-size: 26px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar .container {
+        justify-content: center;
+      }
+
+      .hero-actions,
+      .cta-strip .container {
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span>Academic Queries</span>
+        <span>Professional Online Classes for International Students</span>
+      </div>
+      <div class="topbar-right">
+        <a href="tel:+919821148663">Call: +91 9821148663</a>
+        <a href="https://wa.me/919821148663" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="navbar">
+    <div class="container">
+      <div class="brand">
+        <h1>Academic Queries</h1>
+        <span>Online Classes • Coursework Support • Skill Development</span>
+      </div>
+
+      <button class="mobile-toggle" id="mobileToggle">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#benefits">Why Us</a>
+        <a href="#process">How It Works</a>
+        <a href="#contact">Contact</a>
+        <a href="#enquiry" class="btn btn-primary">Book a Free Consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">International Student Focused Learning Support</span>
+        <h2>Professional Online Classes for High-Demand Technical Courses & Subjects</h2>
+        <p>
+          Academic Queries helps international students learn with confidence through live online classes, one-to-one mentoring, doubt solving, practical support, and flexible scheduling across time zones.
+        </p>
+        <div class="hero-actions">
+          <a href="#courses" class="btn btn-primary">Explore Courses</a>
+          <a href="#enquiry" class="btn btn-outline">Enquire Now</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-box">
+            <strong>1:1</strong>
+            Personal attention and subject-wise support
+          </div>
+          <div class="stat-box">
+            <strong>Flexible</strong>
+            Time-zone friendly online class scheduling
+          </div>
+          <div class="stat-box">
+            <strong>Practical</strong>
+            Real learning focused on concepts and application
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <h3>Why students choose Academic Queries</h3>
+        <div class="feature-list">
+          <div class="feature-panel"><span class="feature-dot"></span><div>Live online classes for international students across multiple technical domains</div></div>
+          <div class="feature-panel"><span class="feature-dot"></span><div>Help with concepts, coursework topics, lab understanding, and academic learning support</div></div>
+          <div class="feature-panel"><span class="feature-dot"></span><div>Beginner to advanced guidance with structured sessions and practical clarity</div></div>
+          <div class="feature-panel"><span class="feature-dot"></span><div>Support in trending technologies that improve employability and confidence</div></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="courses">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">Courses We Cover</span>
+        <h3>Online classes for the most in-demand technology subjects</h3>
+        <p>
+          Our classes are designed for international students, graduates, and learners who need structured support in advanced subjects and modern technical skills.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h4>AI & Data Science</h4>
+          <p>Career-relevant subjects for students entering modern analytics, AI, and intelligent systems.</p>
+          <ul class="course-list">
+            <li>GenAI & LLMs (Prompt Engineering, LangChain)</li>
+            <li>Machine Learning (Python, Predictive Modeling)</li>
+            <li>Data Analytics (SQL, Power BI, Tableau)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h4>Modern Development</h4>
+          <p>Learn current development frameworks and build confidence in software and application workflows.</p>
+          <ul class="course-list">
+            <li>Full-Stack (MERN, Next.js)</li>
+            <li>Backend (Django, FastAPI, Node.js)</li>
+            <li>App Development (Flutter, React Native)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h4>DevOps & Cloud</h4>
+          <p>Develop real understanding of deployment, cloud platforms, automation, and infrastructure practices.</p>
+          <ul class="course-list">
+            <li>Cloud (AWS, Azure, GCP)</li>
+            <li>Containers (Docker, Kubernetes)</li>
+            <li>Automation (CI/CD, Terraform)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h4>Security & Systems</h4>
+          <p>Focused support for students working with modern infrastructure, cybersecurity, and large-scale systems.</p>
+          <ul class="course-list">
+            <li>Cybersecurity (Ethical Hacking, VAPT)</li>
+            <li>Big Data (Spark, Snowflake)</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-us" id="benefits">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">Why Academic Queries</span>
+        <h3>A professional layout inspired by strong WordPress business landing pages</h3>
+        <p>
+          This version uses a clean WordPress-style business structure with strong sections, clear calls to action, and trust-building content blocks.
+        </p>
+      </div>
+
+      <div class="benefit-grid">
+        <div class="benefit-box">
+          <h4>International Student Friendly</h4>
+          <p>Classes are planned with flexibility for students studying in different countries and time zones.</p>
+        </div>
+        <div class="benefit-box">
+          <h4>Live Expert Guidance</h4>
+          <p>Learn directly through interactive sessions that focus on explanation, support, and academic clarity.</p>
+        </div>
+        <div class="benefit-box">
+          <h4>Career-Oriented Subjects</h4>
+          <p>Focus on practical domains that support learning, confidence, and future employability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">How It Works</span>
+        <h3>A simple and professional learning process</h3>
+        <p>Start with your requirement, get a learning plan, and begin online sessions tailored to your subject needs.</p>
+      </div>
+
+      <div class="step-grid">
+        <div class="step">
+          <span class="number">1</span>
+          <h4>Share Your Subject</h4>
+          <p>Tell us your course, topics, preferred timing, and the kind of help you need.</p>
+        </div>
+        <div class="step">
+          <span class="number">2</span>
+          <h4>Get a Suitable Plan</h4>
+          <p>We suggest the right class structure based on your level, subject depth, and schedule.</p>
+        </div>
+        <div class="step">
+          <span class="number">3</span>
+          <h4>Start Learning Online</h4>
+          <p>Join live classes, ask doubts, strengthen concepts, and improve your technical understanding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">Who We Help</span>
+        <h3>Built for students who want clarity, support, and better results</h3>
+        <p>Whether you are starting from basics or managing advanced coursework, our online classes are structured to help you move forward confidently.</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <h4>International Students</h4>
+          <p>Students studying abroad who need reliable live support for technical subjects and learning challenges.</p>
+        </div>
+        <div class="testimonial">
+          <h4>Graduates & Freshers</h4>
+          <p>Learners who want to build modern technical skills before interviews, internships, and job opportunities.</p>
+        </div>
+        <div class="testimonial">
+          <h4>Beginners to Advanced Learners</h4>
+          <p>Support is suitable for concept building, subject revision, doubt solving, and guided practice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="container">
+      <div>
+        <h3>Ready to start your online classes?</h3>
+        <p>Connect with Academic Queries and discuss your subject, schedule, and class format.</p>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="tel:+919821148663" class="btn btn-outline">Call +91 9821148663</a>
+        <a href="https://wa.me/919821148663" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="container wrap">
+      <div class="contact-card">
+        <h4>Contact Academic Queries</h4>
+        <p>
+          Reach out for one-to-one classes, subject-specific help, coursework support, and technical learning guidance for international students.
+        </p>
+        <ul class="contact-list">
+          <li>
+            <strong>Phone</strong>
+            <a href="tel:+919821148663">+91 9821148663</a>
+          </li>
+          <li>
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/919821148663" target="_blank" rel="noopener noreferrer">Start WhatsApp Chat</a>
+          </li>
+          <li>
+            <strong>Brand</strong>
+            Academic Queries
+          </li>
+          <li>
+            <strong>Ideal For</strong>
+            International students seeking structured online classes in modern technical subjects
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-card" id="enquiry">
+        <h4>Book Your Free Consultation</h4>
+        <p>Fill out the form below and we will contact you regarding your subject and class requirement.</p>
+        <form id="enquiryForm">
+          <input type="text" id="name" placeholder="Full Name" required />
+          <input type="email" id="email" placeholder="Email Address" required />
+          <input type="text" id="country" placeholder="Country / Time Zone" required />
+          <select id="course" required>
+            <option value="">Select Course Category</option>
+            <option>AI & Data Science</option>
+            <option>Modern Development</option>
+            <option>DevOps & Cloud</option>
+            <option>Security & Systems</option>
+            <option>Other Technical Subject</option>
+          </select>
+          <textarea id="message" placeholder="Tell us the subject, course, topics, or support you need" required></textarea>
+          <button type="submit" class="btn btn-dark">Submit Enquiry</button>
+          <div class="success-message" id="successMessage">Thank you. Your enquiry has been noted. Replace this demo action with email integration, WhatsApp API, Formspree, or your own backend to receive real submissions.</div>
+          <p class="form-note">This is a direct-hosting HTML/CSS/JS version. Connect the form to Formspree, Netlify Forms, EmailJS, WhatsApp API, or your own backend for live enquiries.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Academic Queries</h4>
+          <p>
+            Professional online classes and subject support for international students across today’s most in-demand technical domains.
+          </p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#benefits">Why Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+919821148663">+91 9821148663</a></li>
+            <li><a href="https://wa.me/919821148663" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+            <li>International student online classes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">© 2026 Academic Queries. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/919821148663" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">✆</a>
+
+  <script>
+    const toggleBtn = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    const enquiryForm = document.getElementById('enquiryForm');
+    const successMessage = document.getElementById('successMessage');
+
+    toggleBtn.addEventListener('click', function () {
+      navLinks.classList.toggle('active');
+    });
+
+    enquiryForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      successMessage.style.display = 'block';
+      enquiryForm.reset();
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  </script>
+</body>
+</html>
